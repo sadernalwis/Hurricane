@@ -10,20 +10,21 @@ except ImportError:
 	print("tornado installed")
 	
 from Backend.Greeting import Basic
-from Backend.Clients import WebSocketHandler
+from Backend.Clients import WebSocketHandler, clients
 
 def send_message_to_clients():
 	try:
 		# read_my_data()
 		for client in clients:
+			client.write_message({time:datetime()})
 			pass# Do whatever
 	finally:
 		tornado.ioloop.IOLoop.instance().add_timeout(timedelta(seconds=3), send_message_to_clients)
 
 socket = tornado.web.Application([
 	(r"/ws", WebSocketHandler),
-	(r"/", Basic),
-	])
+	(r"/", Basic), ])
+
 if __name__ == "__main__":
 	host, port = 'localhost', 8888
 	socket.listen(port,host)
