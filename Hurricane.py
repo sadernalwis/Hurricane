@@ -1,7 +1,7 @@
 import subprocess, sys
 from datetime import timedelta
-from Greeting import Basic
-from Clients import WebSocketHandler
+from Backend.Greeting import Basic
+from Backend.Clients import WebSocketHandler
 pybin = sys.executable#
 try: # tornado
 	import tornado
