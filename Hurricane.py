@@ -26,8 +26,8 @@ socket = tornado.web.Application([
 	(r"/", Basic), ])
 
 def host_port():
-	if len(sys.argv) == 1 : 	return sys.argv[1], 8888
-	elif len(sys.argv) > 1 : 	return sys.argv[1], int(sys.argv[2])
+	if len(sys.argv) == 2 : 	return sys.argv[1], 8888
+	elif len(sys.argv) > 2 : 	return sys.argv[1], int(sys.argv[2])
 	else:  						return 'localhost', 8888
 
 if __name__ == "__main__":
