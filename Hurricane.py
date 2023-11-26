@@ -25,8 +25,13 @@ socket = tornado.web.Application([
 	(r"/ws", WebSocketHandler),
 	(r"/", Basic), ])
 
+def host_port():
+	if len(sys.argv) == 1 : 	return sys.argv[1], 8888
+	elif len(sys.argv) > 1 : 	return sys.argv[1], int(sys.argv[2])
+	else:  						return 'localhost', 8888
+
 if __name__ == "__main__":
-	host, port = 'localhost', 8888
+	host, port = host_port()
 	socket.listen(port,host)
 	print(f'http://{host}:{port}')
 	tornado.ioloop.IOLoop.instance().add_timeout(timedelta(seconds=3), send_message_to_clients)

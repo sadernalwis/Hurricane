@@ -4,7 +4,7 @@
 
 > Run Backend
 ```bash
-python3 Hurricane.py
+python3 Hurricane.py 192.168.1.1 8888
 ```
 
 > Run Frontend
