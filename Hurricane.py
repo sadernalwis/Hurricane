@@ -1,5 +1,5 @@
-import subprocess, sys
-from datetime import timedelta
+import subprocess, sys, datetime
+from datetime import timedelta, datetime
 pybin = sys.executable#
 try: # tornado
 	import tornado
@@ -16,7 +16,7 @@ def send_message_to_clients():
 	try:
 		# read_my_data()
 		for client in clients:
-			client.write_message({'time':datetime()})
+			client.write_message({'time':datetime.now()})
 			pass# Do whatever
 	finally:
 		tornado.ioloop.IOLoop.instance().add_timeout(timedelta(seconds=3), send_message_to_clients)
