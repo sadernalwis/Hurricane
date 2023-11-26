@@ -28,7 +28,7 @@ if __name__ == "__main__":
 	host, port = 'localhost', 8888
 	socket.listen(port,host)
 	print(f'http://{host}:{port}')
-	# tornado.ioloop.IOLoop.instance().add_timeout(timedelta(seconds=3), send_message_to_clients)
+	tornado.ioloop.IOLoop.instance().add_timeout(timedelta(seconds=3), send_message_to_clients)
 	tornado.ioloop.IOLoop.instance().start()
 
 # RUN
