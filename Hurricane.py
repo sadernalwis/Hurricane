@@ -1,7 +1,5 @@
 import subprocess, sys
 from datetime import timedelta
-from Backend.Greeting import Basic
-from Backend.Clients import WebSocketHandler
 pybin = sys.executable#
 try: # tornado
 	import tornado
@@ -11,6 +9,9 @@ except ImportError:
 	import tornado
 	print("tornado installed")
 	
+from Backend.Greeting import Basic
+from Backend.Clients import WebSocketHandler
+
 def send_message_to_clients():
 	try:
 		# read_my_data()
